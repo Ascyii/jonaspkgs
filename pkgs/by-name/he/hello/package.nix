@@ -13,13 +13,12 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "hello";
-  version = "2.12.3";
-
-  __structuredAttrs = true;
+  # Test other version
+  version = "2.12.1";
 
   src = fetchurl {
     url = "mirror://gnu/hello/hello-${finalAttrs.version}.tar.gz";
-    hash = "sha256-DV9gFUOC/uELEUocNOeF2LH0kgc64tOm97FHaHs2aqA=";
+    hash = "sha256-jZkUKv2SV28wsM18tCqNxoCZmLxdYH2Idh9RLibH2yA=";
   };
 
   patches = lib.optional stdenv.hostPlatform.isCygwin gnulib.patches.memcpy-fix-backport-250512;
